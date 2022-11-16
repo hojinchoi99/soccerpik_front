@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
-import { Stack, Select, InputLabel, Typography, styled, TextField, Box, InputAdornment, createTheme, Button, FormHelperText, AppBar, MenuItem, FormControl } from "@mui/material";
+import { Stack, Select, InputLabel, Typography, styled, TextField, Box, InputAdornment, createTheme, Button, FormHelperText, MenuItem, FormControl } from "@mui/material";
 import MeasureImg from './assets/footPic.png';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const muiTheme = createTheme({
     palette: {
@@ -9,14 +11,6 @@ const muiTheme = createTheme({
         },
         secondary: {
             main: "#82B1FF",
-        },
-    },
-    typography: {
-        h4 : {
-            fontFamily: [
-                "'Alfa Slab One', cursive",
-            ],
-            fontSize: "32px",
         },
     },
 });
@@ -33,15 +27,6 @@ const BodyStack = styled(Stack)({
     direction: "column",
     justifyContent: "center",
     alignItems: "center",
-});
-
-const FooterStack = styled(Stack)({
-    flexDirection: "row",
-    background: "#F0F0F0",
-    color: "#838383",
-    paddingBottom: 32,
-    paddingTop: 32,
-    margin: 0,
 });
 
 const Main = () => {
@@ -120,16 +105,7 @@ const Main = () => {
 
     return (
         <div>
-            <AppBar sx={{
-                justifyContent: "center",
-                alignItems: "center",
-                borderBottomLeftRadius: 14,
-                borderBottomRightRadius: 14,
-                backgroundColor: "#82B1FF"}}>
-                <Typography theme={muiTheme} variant='h4' m={2}>
-                        Locker No.9
-                </Typography>
-            </AppBar>
+            <Header />
             <BodyStack sx={{backgroundColor: "#F0F0F0"}}>
                 <Box sx={{m: 9, pl: 4, pr: 4, pt: 2, pb: 4, backgroundColor: "#FFFFFF"}}>
                     <Stack alignItems="center" sx={{mb: 2}}>
@@ -167,24 +143,7 @@ const Main = () => {
                     </Box>
                 </Box>
             </BodyStack>
-             <FooterStack>
-                <Stack sx={{ flex: 1 }} alignItems="center">
-                    <Stack
-                        sx={{ flex: 1, mt: 5 }}
-                        alignItems="center"
-                        spacing={2}
-                        direction="row">
-                        <Typography variant="body1">About</Typography>
-                        <Typography variant="body1">|</Typography>
-                        <Typography variant="body1">Contact</Typography>
-                        <Typography variant="body1">|</Typography>
-                        <Typography variant="body1">Terms and Conditions</Typography>
-                    </Stack>
-                        <Typography variant="body2">
-                            © 2021. SoccerPik. all rights reserved.
-                        </Typography>
-                </Stack>
-             </FooterStack>
+            <Footer />
         </div>
     );
 };
