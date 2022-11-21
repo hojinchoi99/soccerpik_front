@@ -3,6 +3,8 @@ import { Stack, Select, InputLabel, Typography, styled, TextField, Box, InputAdo
 import MeasureImg from './assets/footPic.png';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 const muiTheme = createTheme({
     palette: {
@@ -40,9 +42,20 @@ const Main = () => {
     const[comment, setComment] = useState("");
     const[fieldError, setFieldError] = useState(false);
     const[commit, setCommit] = useState("");
+    const numberRegex = /^[0-9]+$/;
+    const navigate = useNavigate();
 
     const onhandlePost = async (joinData) => {
         console.log(joinData);
+        await axios
+        .post('http://localhost:5000/api/search', joinData)
+        .then(function(response){
+            console.log(response, 'Success');
+            navigate('/result');
+        })
+        .catch(function(err){
+            console.log(err);
+        });
     };
 
     const handleChange = (e) => {
@@ -60,7 +73,7 @@ const Main = () => {
         };
         const { length, width, height, field } = joinData;
 
-        if(length !== "") {
+        if(length !== "" && numberRegex.test(length)) {
             setLength("");
             setLengthError(false);
         }
@@ -69,7 +82,7 @@ const Main = () => {
             setLengthError(true);
         }
 
-        if(width !== "") {
+        if(width !== "" && numberRegex.test(width)) {
             setWidth("");
             setWidthError(false);
         }
@@ -78,7 +91,7 @@ const Main = () => {
             setWidthError(true);
         }
         
-        if(height !== "") {
+        if(height !== "" && numberRegex.test(height)) {
             setHeight("");
             setHeightError(false);
         }
@@ -96,9 +109,8 @@ const Main = () => {
             setFieldError(true);
         }
 
-        if(length !== "" && width !== "" && height !== "" && field !== "") {
-            setCommit("");
-            if(widthError === false && heightError === false && lengthError === false && fieldError === false) onhandlePost(joinData)
+        if(numberRegex.test(length) && numberRegex.test(width) && numberRegex.test(height)) {
+            onhandlePost(joinData)
         }
         else setCommit("Invalidate Information Exist!");
     };
