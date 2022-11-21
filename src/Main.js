@@ -48,7 +48,7 @@ const Main = () => {
     const onhandlePost = async (joinData) => {
         console.log(joinData);
         await axios
-        .post('http://localhost:5000/api/search', joinData)
+        .post('http://127.0.0.1:5000/search', joinData)
         .then(function(response){
             console.log(response, 'Success');
             navigate('/result');

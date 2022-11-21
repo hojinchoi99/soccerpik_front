@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useEffect, useState } from 'react';
 import { Stack, styled, Box, TableContainer, TableHead, TableRow, TableCell, TableBody, Table, Paper, Rating, Typography, createTheme, Button } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Header from './components/Header';
@@ -24,22 +24,6 @@ const muiTheme = createTheme({
     },
 });
 
-function createData(
-    number,
-    name,
-    rating,
-){
-    return { number, name, rating };
-}
-
-const rows = [
-    createData(1, 'Adidas Predator', 5),
-    createData(2, 'Nike Tiempo', 4),
-    createData(3, 'Puma Ultra', 3),
-    createData(4, 'Nike Mercurial', 2),
-    createData(5, 'Newbalance Furon', 1),
-];
-
 const BodyStack = styled(Stack)({
     direction: "column",
     justifyContent: "center",
@@ -47,6 +31,37 @@ const BodyStack = styled(Stack)({
 });
 
 const Result = () => {
+    const [resData, setResData] = useState("");
+    const [count, setCount] = useState("");
+
+    useEffect(() => 
+    {
+    	fetch("/result").then(
+          response => response.json()
+        ).then(
+          data => {
+            setResData(data);
+            setCount(data.result.length);
+          }
+        ).catch(
+          (err) => console.log(err)
+        )
+    }, [])
+
+    function createData(
+        number,
+        name,
+        rating,
+    ){
+        return { number, name, rating };
+    }
+
+    const rows = [];
+    var i;
+    for(i = 0; i < count; i++){
+        rows.push(createData(i+1, resData.result[i].name, 5 - i/2));
+    }
+
     return (
         <div>
             <Header />
