@@ -40,6 +40,7 @@ const Result = () => {
           response => response.json()
         ).then(
           data => {
+            console.log(data)
             setResData(data);
             setCount(data.result.length);
           }
@@ -59,7 +60,7 @@ const Result = () => {
     const rows = [];
     var i;
     for(i = 0; i < count; i++){
-        rows.push(createData(i+1, resData.result[i].name, 5 - i/2));
+        rows.push(createData(i+1, resData.result[i].Name, 5 - i/3));
     }
 
     return (
