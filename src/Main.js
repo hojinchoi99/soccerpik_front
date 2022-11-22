@@ -42,7 +42,8 @@ const Main = () => {
     const[comment, setComment] = useState("");
     const[fieldError, setFieldError] = useState(false);
     const[commit, setCommit] = useState("");
-    const numberRegex = /^[0-9]+$/;
+    const intRegex = /^[0-9]+$/;
+    const floatRegex = /^\d*[.]\d{1}$/;
     const navigate = useNavigate();
 
     const onhandlePost = async (joinData) => {
@@ -73,7 +74,7 @@ const Main = () => {
         };
         const { length, width, height, field } = joinData;
 
-        if(length !== "" && numberRegex.test(length)) {
+        if(length !== "" && (floatRegex.test(length) || intRegex.test(length))){
             setLength("");
             setLengthError(false);
         }
@@ -82,7 +83,7 @@ const Main = () => {
             setLengthError(true);
         }
 
-        if(width !== "" && numberRegex.test(width)) {
+        if(width !== "" && (floatRegex.test(width) || intRegex.test(width))) {
             setWidth("");
             setWidthError(false);
         }
@@ -91,7 +92,7 @@ const Main = () => {
             setWidthError(true);
         }
         
-        if(height !== "" && numberRegex.test(height)) {
+        if(height !== "" && (floatRegex.test(height) || intRegex.test(height))) {
             setHeight("");
             setHeightError(false);
         }
@@ -109,7 +110,7 @@ const Main = () => {
             setFieldError(true);
         }
 
-        if(numberRegex.test(length) && numberRegex.test(width) && numberRegex.test(height)) {
+        if((floatRegex.test(length) || intRegex.test(length)) && (floatRegex.test(width) || intRegex.test(width)) && (floatRegex.test(height) || intRegex.test(height))) {
             onhandlePost(joinData)
         }
         else setCommit("Invalidate Information Exist!");
@@ -146,9 +147,9 @@ const Main = () => {
                                 </Select>
                                 <FormHelperText>{comment}</FormHelperText>
                             </FormControl>
-                            <FormField error={lengthError} label="길이" variant='outlined' id="length" name="length" helperText={length} InputProps={{endAdornment: <InputAdornment position="start">mm</InputAdornment>}} />
-                            <FormField error={widthError} label="폭" variant='outlined' id="width" name="width" helperText={width} InputProps={{endAdornment: <InputAdornment position="start">mm</InputAdornment>}} />
-                            <FormField error={heightError} label="높이" variant='outlined' id="height" name="height" helperText={height} InputProps={{endAdornment: <InputAdornment position="start">mm</InputAdornment>}} />
+                            <FormField error={lengthError} label="길이" variant='outlined' id="length" name="length" helperText={length} InputProps={{endAdornment: <InputAdornment position="start">cm</InputAdornment>}} />
+                            <FormField error={widthError} label="폭" variant='outlined' id="width" name="width" helperText={width} InputProps={{endAdornment: <InputAdornment position="start">cm</InputAdornment>}} />
+                            <FormField error={heightError} label="높이" variant='outlined' id="height" name="height" helperText={height} InputProps={{endAdornment: <InputAdornment position="start">cm</InputAdornment>}} />
                             <Button theme={muiTheme} variant='contained' type="submit" sx={{ width: "258px", p: 1.55, borderRadius: 4, fontSize: '18px', fontWeight: '800', color: "#FFFFFF"}}>나에게 맞는 축구화 찾기</Button>
                             <FormHelperText>{commit}</FormHelperText>
                         </BodyStack>
