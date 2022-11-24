@@ -127,7 +127,7 @@ const Main = () => {
                     <Box component="form" noValidate onSubmit={handleSubmit}>
                         <BodyStack spacing={2}>
                             <Typography variant="h6" sx={{fontWeight: "bold", color: "#82B1FF"}}>발 사이즈 입력하고 <br />구장을 선택하세요.</Typography>
-                            <FormControl sx={{ m:1, width: 258}} error={fieldError}>
+                            <FormControl sx={{ m:1, width: 253}} error={fieldError}>
                                 <InputLabel id="sel">구장 선택</InputLabel>
                                 <Select
                                     labelId="sel"
@@ -150,7 +150,7 @@ const Main = () => {
                             <FormField error={lengthError} label="길이" variant='outlined' id="length" name="length" helperText={length} InputProps={{endAdornment: <InputAdornment position="start">cm</InputAdornment>}} />
                             <FormField error={widthError} label="폭" variant='outlined' id="width" name="width" helperText={width} InputProps={{endAdornment: <InputAdornment position="start">cm</InputAdornment>}} />
                             <FormField error={heightError} label="높이" variant='outlined' id="height" name="height" helperText={height} InputProps={{endAdornment: <InputAdornment position="start">cm</InputAdornment>}} />
-                            <Button theme={muiTheme} variant='contained' type="submit" sx={{ width: "258px", p: 1.55, borderRadius: 4, fontSize: '18px', fontWeight: '800', color: "#FFFFFF"}}>나에게 맞는 축구화 찾기</Button>
+                            <Button theme={muiTheme} variant='contained' type="submit" sx={{ width: "253px", p: 1.55, borderRadius: 4, fontSize: '18px', fontWeight: '800', color: "#FFFFFF"}}>나에게 맞는 축구화 찾기</Button>
                             <FormHelperText>{commit}</FormHelperText>
                         </BodyStack>
                     </Box>

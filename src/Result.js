@@ -60,7 +60,7 @@ const Result = () => {
     const rows = [];
     var i;
     for(i = 0; i < count; i++){
-        rows.push(createData(i+1, resData.result[i].Name, 5 - i/3));
+        rows.push(createData(i+1, resData.result[i].Name, 5 - (i-1)/3));
     }
 
     return (
