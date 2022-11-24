@@ -47,15 +47,13 @@ const Main = () => {
     const navigate = useNavigate();
 
     const onhandlePost = async (joinData) => {
-        console.log(joinData);
         await axios
         .post('http://127.0.0.1:5000/search', joinData)
         .then(function(response){
-            console.log(response, 'Success');
             navigate('/result');
         })
         .catch(function(err){
-            console.log(err);
+            alert('Error!');
         });
     };
 

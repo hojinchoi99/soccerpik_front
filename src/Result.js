@@ -40,7 +40,6 @@ const Result = () => {
           response => response.json()
         ).then(
           data => {
-            console.log(data)
             setResData(data);
             setCount(data.result.length);
           }

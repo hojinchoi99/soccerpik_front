@@ -22,7 +22,7 @@ const Header = () => {
             backgroundColor: "#82B1FF"}}>
             <Link to="/" style={{ textDecoration: 'none', color: "#FFFFFF" }}>
                 <Typography theme={muiTheme} variant='h4' m={2}>
-                        Locker No.9
+                        <em>Futbolista</em>
                 </Typography>
             </Link>
         </AppBar>
