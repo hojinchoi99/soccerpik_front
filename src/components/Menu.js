@@ -11,6 +11,7 @@ const style = {
     width: '85%',
     height: '100%',
     bgcolor: 'background.paper',
+    overflow: "scroll"
 }
 
 const LinkTextDecoration = {
@@ -33,7 +34,7 @@ const Menu = () => {
             </IconButton>
             <Modal open={open} onClose={handleClose}>
                 <Box sx={style}>
-                    <Box sx={{backgroundColor: "#82B1FF" }}>
+                    <Box sx={{ backgroundColor: "#82B1FF", zIndex: 1100, position: 'fixed', width: "85%", height: "170px" }}>
                         <Stack
                             direction="column"
                             justifyContent="center"
@@ -51,14 +52,14 @@ const Menu = () => {
                             </Link>
                         </Stack>
                     </Box>
-                    <Box sx={{p: 2.5, border: '1px solid #EEEEEE'}}>
+                    <Box sx={{ mt: '170px', p: 2.5, border: '1px solid #EEEEEE' }}>
                         <Link to="/" style={LinkTextDecoration}>
                                 <Typography ml={0.5}>홈</Typography>    
                         </Link>
                     </Box>
                     <Accordion disableGutters elevation={0} sx={{p: 1, boxShadow: 2, border: '1px solid #EEEEEE'}}>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                            <Typography>브랜드명</Typography>
+                            <Typography>축구화 브랜드</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Link to="/" style={LinkTextDecoration}>
@@ -70,6 +71,37 @@ const Menu = () => {
                             <Link to="/" style={LinkTextDecoration}>
                                 <Typography m={2}>퓨마</Typography>
                             </Link>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2}>미즈노</Typography>
+                            </Link>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2}>뉴발란스</Typography>
+                            </Link>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2}>언더아머</Typography>
+                            </Link>
+                        </AccordionDetails>
+                    </Accordion>
+                    <Accordion disableGutters elevation={0} sx={{p: 1, boxShadow: 2, border: '1px solid #EEEEEE'}}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                            <Typography>축구장 유형</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2} mt={0}>FG</Typography>
+                            </Link>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2}>SG</Typography>
+                            </Link>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2}>AG</Typography>
+                            </Link>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2}>TF</Typography>
+                            </Link>
+                            <Link to="/" style={LinkTextDecoration}>
+                                <Typography m={2}>IC</Typography>
+                            </Link>
                         </AccordionDetails>
                     </Accordion>
                     <Accordion disableGutters elevation={0} sx={{p: 1, boxShadow: 1, border: '1px solid #EEEEEE'}}>
@@ -79,9 +111,6 @@ const Menu = () => {
                         <AccordionDetails>
                             <Link to="/" style={LinkTextDecoration}>
                                 <Typography m={2} mt={0}>공지사항</Typography>
-                            </Link>
-                            <Link to="/" style={LinkTextDecoration}>
-                                <Typography m={2}>고객문의</Typography>
                             </Link>
                             <Link to="/" style={LinkTextDecoration}>
                                 <Typography m={2}>약관 및 정책</Typography>
