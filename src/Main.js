@@ -118,7 +118,7 @@ const Main = () => {
         <div>
             <Header />
             <BodyStack sx={{backgroundColor: "#F0F0F0"}}>
-                <Box sx={{m: 9, pl: 4, pr: 4, pt: 2, pb: 4, backgroundColor: "#FFFFFF"}}>
+                <Box sx={{m: 9, mb: 0, pl: 4, pr: 4, pt: 2, pb: 4, backgroundColor: "#FFFFFF"}}>
                     <Stack alignItems="center" sx={{mb: 2}}>
                         <img src={MeasureImg} alt=""/>
                     </Stack>

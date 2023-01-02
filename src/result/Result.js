@@ -1,8 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { Stack, styled, Box, TableContainer, TableHead, TableRow, TableCell, TableBody, Table, Paper, Rating, Typography, createTheme, Button } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
 const muiTheme = createTheme({

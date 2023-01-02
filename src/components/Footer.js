@@ -7,7 +7,6 @@ const FooterStack = styled(Stack)({
     color: "#838383",
     paddingBottom: 32,
     paddingTop: 32,
-    margin: 0,
 });
 
 const Footer = () => {
@@ -26,7 +25,7 @@ const Footer = () => {
                     <Typography variant="body1">Terms and Conditions</Typography>
                 </Stack>
                 <Typography variant="body2">
-                    © 2021. SoccerPik. all rights reserved.
+                    © 2023. Futbolista. all rights reserved.
                 </Typography>
             </Stack>
         </FooterStack>
